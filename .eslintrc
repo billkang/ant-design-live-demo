@@ -1,0 +1,20 @@
+{
+  "extends": "airbnb",
+  "parser": "babel-eslint",
+  "env": {
+    "browser": true,
+    "jest": true
+  },
+  "rules": {
+    "comma-dangle": 0,
+    "no-new-func": 0,
+    "no-underscore-dangle": 0,
+    "no-trailing-spaces": 0,
+    "global-require": 0,
+    "import/extensions": 0,
+    "import/no-extraneous-dependencies": 0,
+    "import/no-named-as-default": 0,
+    "import/no-unresolved": 0,
+    "react/jsx-wrap-multilines": 0
+  }
+}
