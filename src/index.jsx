@@ -1,59 +1,81 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { transform } from 'babel-standalone';
-import { DatePicker } from 'antd';
-import CodeMirror from 'codemirror/lib/codemirror';
+import { Layout, Menu, Icon } from 'antd';
+import {
+  BrowserRouter as Router,
+  Route,
+  Link
+} from 'react-router-dom';
 
-import 'codemirror/lib/codemirror.css';
 import 'antd/dist/antd.css';
-
+import 'codemirror/lib/codemirror.css';
 import 'codemirror/mode/css/css';
 import 'codemirror/mode/htmlmixed/htmlmixed';
 import 'codemirror/mode/javascript/javascript';
 import 'codemirror/mode/jsx/jsx';
 
+import HomePage from './components/HomePage';
+import DatePickerDemo from './components/DatePickerDemo';
+
+import './index.scss';
+
+const { Content, Footer, Sider } = Layout;
+const SubMenu = Menu.SubMenu;
+
 class App extends React.Component {
   constructor() {
     super();
 
-    this.editor = null;
+    this.state = {
+      collapsed: false,
+      mode: 'inline',
+    };
 
-    this.updatePreview = this.updatePreview.bind(this);
+    this.onCollapse = this.onCollapse.bind(this);
   }
 
-  componentDidMount() {
-    // Initialize CodeMirror editor with a nice html5 canvas demo.
-    this.editor = CodeMirror.fromTextArea(document.getElementById('code'), {
-      mode: 'text/html',
-      styleActiveLine: true,
-      lineNumbers: true,
-      lineWrapping: true
+  onCollapse(collapsed) {
+    this.setState({
+      collapsed,
+      mode: collapsed ? 'vertical' : 'inline',
     });
-
-    setTimeout(this.updatePreview, 300);
-  }
-
-  updatePreview() {
-    const result = transform(this.editor.getValue(), {
-      presets: [
-        ['es2015', { modules: false }],
-        'react'
-      ]
-    });
-    const element = result.code;
-    const fun = new Function('React', 'DatePicker', `return ${element}`);
-    ReactDOM.render.call(this, fun(React, DatePicker), document.getElementById('preview'));
   }
 
   render() {
-    const html = '<DatePicker />';
-
     return (
-      <div>
-        <textarea id="code" name="code" defaultValue={html} />
-        <button onClick={this.updatePreview}>refresh</button>
-        <div id="preview" />
-      </div>
+      <Router>
+        <Layout>
+          <Sider
+            collapsible
+            collapsed={this.state.collapsed}
+            onCollapse={this.onCollapse}
+          >
+            <h1 className="title">Live Demo</h1>
+            <Menu theme="dark" mode={this.state.mode} defaultSelectedKeys={['6']}>
+              <Menu.Item key="1">
+                <Link to="/">Home</Link>
+              </Menu.Item>
+              <SubMenu
+                key="sub1"
+                title={<span><Icon type="user" /><span className="nav-text">Data Entry</span></span>}
+              >
+                <Menu.Item key="1">
+                  <Link to="/DatePicker">DatePicker</Link>
+                </Menu.Item>
+              </SubMenu>
+            </Menu>
+          </Sider>
+          <Layout>
+            <Content>
+              <Route exact path="/" component={HomePage} />
+              <Route path="/datepicker" component={DatePickerDemo} />
+            </Content>
+            <Footer>
+              Ant Design Live Demo ©2017 Created by bill kang.
+            </Footer>
+          </Layout>
+        </Layout>
+      </Router>
     );
   }
 }

@@ -1,0 +1,43 @@
+#root {
+  height: 100%;
+
+  .ant-layout {
+    height: 100%;
+  }
+
+  .ant-layout-sider {
+    .title {
+      padding: 10px 5px 20px;
+      color: #fff;
+      text-align: center;
+      border-bottom: 1px solid #eee;
+    }
+  }
+
+  .ant-layout-sider-collapsed {
+    .title {
+      font-size: 16px;
+    }
+
+    .anticon {
+      font-size: 16px;
+      margin-left: 8px;
+    }
+
+    .nav-text {
+      display: none;
+    }
+
+    .ant-menu-submenu-vertical > .ant-menu-submenu-title:after {
+      display: none;
+    }
+  }
+
+  .ant-layout-content {
+    padding: 15px;
+  }
+
+  .ant-layout-footer {
+    text-align: center;
+  }
+}
