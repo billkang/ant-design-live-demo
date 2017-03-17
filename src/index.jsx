@@ -2,14 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { transform } from 'babel-standalone';
 import { DatePicker } from 'antd';
-import 'antd/dist/antd.css';
-import CodeMirror from './lib/codemirror';
+import CodeMirror from 'codemirror/lib/codemirror';
 
-import './lib/codemirror.css';
-import './mode/css/css';
-import './mode/htmlmixed/htmlmixed';
-import './mode/javascript/javascript';
-import './mode/jsx/jsx';
+import 'codemirror/lib/codemirror.css';
+import 'antd/dist/antd.css';
+
+import 'codemirror/mode/css/css';
+import 'codemirror/mode/htmlmixed/htmlmixed';
+import 'codemirror/mode/javascript/javascript';
+import 'codemirror/mode/jsx/jsx';
 
 class App extends React.Component {
   constructor() {
@@ -23,7 +24,10 @@ class App extends React.Component {
   componentDidMount() {
     // Initialize CodeMirror editor with a nice html5 canvas demo.
     this.editor = CodeMirror.fromTextArea(document.getElementById('code'), {
-      mode: 'text/html'
+      mode: 'text/html',
+      styleActiveLine: true,
+      lineNumbers: true,
+      lineWrapping: true
     });
 
     setTimeout(this.updatePreview, 300);
