@@ -1,0 +1,29 @@
+.CodeMirror {
+  pre.CodeMirror-placeholder {
+    color: #999;
+  }
+
+  &-selection-highlight-scrollbar {
+    background-color: gold;
+  }
+
+  &-focused {
+    .cm-matchhighlight {
+      background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAFklEQVQI12NgYGBgkKzc8x9CMDAwAAAmhwSbidEoSQAAAABJRU5ErkJggg==);
+      background-position: bottom;
+      background-repeat: repeat-x;
+    }
+  }
+
+  .cm {
+    &-trailingspace {
+      background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAACCAYAAAB/qH1jAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3QUXCToH00Y1UgAAACFJREFUCNdjPMDBUc/AwNDAAAFMTAwMDA0OP34wQgX/AQBYgwYEx4f9lQAAAABJRU5ErkJggg==);
+      background-position: bottom left;
+      background-repeat: repeat-x;
+    }
+
+    &-matchhighlight {
+      background-color: yellow;
+    }
+  }
+}

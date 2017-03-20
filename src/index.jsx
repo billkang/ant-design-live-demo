@@ -6,13 +6,7 @@ import {
   Route,
   Link
 } from 'react-router-dom';
-
 import 'antd/dist/antd.css';
-import 'codemirror/lib/codemirror.css';
-import 'codemirror/mode/css/css';
-import 'codemirror/mode/htmlmixed/htmlmixed';
-import 'codemirror/mode/javascript/javascript';
-import 'codemirror/mode/jsx/jsx';
 
 import HomePage from './components/HomePage';
 import DatePickerDemo from './components/DatePickerDemo';

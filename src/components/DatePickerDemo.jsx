@@ -1,5 +1,6 @@
 import { DatePicker } from 'antd';
-import BaseComponent from './BaseComponent';
+import BaseComponent from './BaseComponent/index';
+import './BaseComponent/antd-hint';
 
 export default class DatePickerDemo extends BaseComponent {
   constructor() {
