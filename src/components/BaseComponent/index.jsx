@@ -76,6 +76,8 @@ export default class BaseComponent extends React.Component {
       theme: 'xq-light',
 
       indentUnit: 2,
+      tabSize: 2,
+      indentWithTabs: true,
       styleActiveLine: true,
       lineNumbers: true,
 
