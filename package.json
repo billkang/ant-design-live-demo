@@ -12,11 +12,11 @@
     }
   },
   "dependencies": {
-    "antd": "^2.8.1",
+    "antd": "^2.10.0",
     "babel-standalone": "^6.23.1",
     "codemirror": "^5.24.2",
-    "react": "^15.4.2",
-    "react-dom": "^15.4.2",
+    "react": "^16.5.0",
+    "react-dom": "^16.5.0",
     "react-router-dom": "^4.0.0"
   },
   "devDependencies": {
